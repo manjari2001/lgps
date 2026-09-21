@@ -1,1 +1,7 @@
-[]
+[
+  {
+    "fund": "Berkshire",
+    "attempts": 1,
+    "reason": "2022 valuation report does not contain the Rates and Adjustments Certificate; Berkshire published it as a separate document not linked in lgps_fund_report_urls.csv. 2025 rates extracted successfully."
+  }
+]

@@ -24,3 +24,5 @@ London Borough of Brent,Brent,21.3,18.8,-2.5,33.5,23.0,Clean name match both yea
 London Borough of Bromley,Bromley,18.3,17.7,-0.6,17.7,4.6,"Employer code 1, listed as 'LB Bromley' both years."
 Buckinghamshire Council,Buckinghamshire,19.6,15.8,-3.8,24.6,21.6,Employer code 2.
 Milton Keynes City Council,Buckinghamshire,20.1,16.5,-3.6,20.1,19.1,Employer code 50.
+Cambridgeshire County Council,Cambridgeshire,17.7,18.3,0.6,,14.7,"2022 row is 'Cambridgeshire County Council Pool (excl schools)', consistent with the brief's excl-schools convention; a separate 'Local Education Authority Schools (CCC)' line shares the same 17.7% primary. 2022 secondary is a cash amount."
+Peterborough City Council,Cambridgeshire,17.5,18.1,0.6,,14.4,2022 row is 'Peterborough City Council Pool (excl schools)'; a separate 'Local Education Authority Schools (PCC)' line shares the same 17.5% primary. 2022 secondary is a cash amount.

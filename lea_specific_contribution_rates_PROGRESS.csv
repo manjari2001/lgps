@@ -1,6 +1,6 @@
-LEA,Fund,Primary_2022,Primary_2025,Primary_change_pp,Notes
-Hampshire County Council,Hampshire,17.8,18.9,1.1,Increase
-Surrey County Council,Surrey,18.9,15.8,-3.1,
-Kent County Council,Kent,20.5,16.6,-3.9,
-Essex County Council,Essex,21.7,18.2,-3.5,
-Staffordshire County Council,Staffordshire,PENDING_2022,19.0,PENDING,Need 2022 report for Staffordshire CC specific line
+LEA,Fund,Primary_2022,Primary_2025,Primary_change_pp,Total_2022_year1,Total_2025_year1,Notes
+Hampshire County Council,Hampshire,17.8,18.9,1.1,,,Increase
+Surrey County Council,Surrey,18.9,15.8,-3.1,,,
+Kent County Council,Kent,20.5,16.6,-3.9,,,
+Essex County Council,Essex,21.7,18.2,-3.5,,,
+Staffordshire County Council,Staffordshire,21.6,19.0,-2.6,,,"Employer code 101, 'Staffordshire County Council (excl. schools)' line used; a separate 'LEA Schools' line shares the same code and same 21.6% primary in 2022. 2022 secondary is a cash amount so no clean year-1 total."

@@ -25,7 +25,7 @@ a = p.parse_args()
 
 change = ""
 if a.p22 and a.p25:
-    change = f"{round(float(a.p25) - float(a.p22), 1):+g}".lstrip("+")
+    change = f"{float(a.p25) - float(a.p22):.1f}"
 
 rows = list(csv.reader(open(CSV)))
 hdr, body = rows[0], rows[1:]

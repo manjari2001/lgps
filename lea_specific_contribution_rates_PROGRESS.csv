@@ -29,3 +29,7 @@ Peterborough City Council,Cambridgeshire,17.5,18.1,0.6,,14.4,2022 row is 'Peterb
 London Borough of Camden,Camden,19.8,18.7,-1.1,,,"Secondary is a cash amount in both cycles so no clean year-1 total either year. The 2025 row carries an asterisk marking an optional pre-payment of the monetary element, which does not affect the primary rate."
 Cardiff Council,Cardiff,17.7,14.7,-3,19.4,14.7,Employer code 60.
 Vale of Glamorgan Council,Cardiff,18.4,15.1,-3.3,19.3,15.0,Employer code 61.
+Cheshire West and Chester Council,Cheshire,20.9,19.4,-1.5,20.6,18.0,Employer code 101; a separate 'Schools Cheshire West and Chester Council' line (code 771) carries the same primary in both cycles.
+Cheshire East Council,Cheshire,21.0,19.5,-1.5,26.7,18.0,Employer code 102.
+Halton Borough Council,Cheshire,21.1,19.3,-1.8,20.5,18.0,Employer code 480.
+Warrington Borough Council,Cheshire,20.9,19.2,-1.7,20.5,18.0,Employer code 680.

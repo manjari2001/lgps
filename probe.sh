@@ -23,7 +23,7 @@ PATTERN="${2:?missing employer regex}"
 SLUG="$(echo "$FUND" | tr 'A-Z ' 'a-z-')"
 
 # Running heads/feet and contents-page dot leaders, not certificate rows.
-FURNITURE='Actuarial valuation as at|Pension Fund \||valuation report|\.\.\.\.\.\.|^ *(PUBLIC|Version )|[0-9]+ of [0-9]+$'
+FURNITURE='[Aa]ctuarial valuation as at|Pension Fund( \||$)|valuation report|\.\.\.\.\.\.|^ *(PUBLIC|Version )|[0-9]+ of [0-9]+$|is addressed to'
 
 for YEAR in 2022 2025; do
   TXT="/tmp/$SLUG-$YEAR.txt"

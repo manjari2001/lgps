@@ -40,3 +40,8 @@ Denbighshire County Council,Clwyd,18.8,16.6,-2.2,,13.4,Mercer,Mercer,Employer co
 Wrexham County Borough Council,Clwyd,19.0,16.4,-2.6,,11.2,Mercer,Mercer,Employer code 102. 2022 secondary is a cash amount so no clean year-1 total.
 Worcestershire County Council,Worcestershire,19.0,18.0,-1.0,17.3,15.3,Mercer,Hymans,"Employer listed as 'Pool' in code column both years; clean name match.; actuary changed between cycles (Mercer 2022, Hymans 2025)"
 Wiltshire Council,Wiltshire,20.7,16.4,-4.3,,,Hymans,Barnett Waddingham,"Employer code 00099 (2025 only, no code listed 2022), 'Wiltshire Council Pool (non-schools)' / '(non schools) (A)' line used per excl-schools convention; a 'Pool (schools)' line shares the same primary in both cycles. Secondary is a mixed percentage-plus-cash figure in both cycles so no clean year-1 total.; actuary changed between cycles (Hymans 2022, Barnett Waddingham 2025)"
+Bradford Council,West Yorkshire,18.1,16.3,-1.8,16.8,12.2,Aon,Aon,"Employer code 2, clean match both years."
+Leeds Council,West Yorkshire,17.5,15.7,-1.8,15.8,12.0,Aon,Aon,"Employer code 3, clean match both years."
+Calderdale MBC,West Yorkshire,18.3,16.1,-2.2,17.0,12.8,Aon,Aon,"Employer code 4, clean match both years."
+Kirklees Council,West Yorkshire,18.1,16.5,-1.6,15.8,11.9,Aon,Aon,"Employer code 5, clean match both years."
+Wakefield MDC,West Yorkshire,17.8,15.9,-1.9,17.1,12.3,Aon,Aon,"Employer code 6, clean match both years."

@@ -91,3 +91,4 @@ Brighton and Hove City Council,East Sussex,20.1,17.6,-2.5,19.8,14.9,Hymans,Barne
 London Borough of Enfield,Enfield,19.1,17.9,-1.2,19.1,16.0,Aon,Hymans,"Employer code listed as 'See Notes' in 2022, no code shown in 2025; clean name match.; actuary changed between cycles (Aon 2022, Hymans 2025)"
 City and County of Swansea,Swansea,21.3,16.9,-4.4,21.3,14.2,Aon,Aon,"Listed as 'Swansea City Council' both years; employer codes overlap (5,6,16,24,35,36,... both years)."
 Neath Port Talbot County Borough Council,Swansea,20.9,16.3,-4.6,22.4,15.3,Aon,Aon,"Employer codes overlap (4,7,31,51,91C both years, 57 added in 2025)."
+Gloucestershire County Council,Gloucestershire,20.5,17.6,-2.9,26.4,20.4,Hymans,Hymans,Employer listed as 'GCC and Schools' (code 'Pool') both years; clean match.

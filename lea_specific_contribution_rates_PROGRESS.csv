@@ -108,14 +108,15 @@ Stockport Council,Greater Manchester,18.7,17.7,-1.0,18.7,15.0,Hymans,Hymans,"Emp
 Tameside Council,Greater Manchester,18.3,17.3,-1.0,19.3,15.0,Hymans,Hymans,"Employer code A0027, listed as 'Tameside MBC' both years. Administering authority for the fund."
 Trafford Council,Greater Manchester,18.7,17.7,-1.0,19.2,15.0,Hymans,Hymans,"Employer code A0028, listed as 'Trafford MBC' both years."
 Wigan Council,Greater Manchester,18.3,17.4,-0.9,18.3,15.0,Hymans,Hymans,"Employer code A0029, listed as 'Wigan MBC' both years."
-Royal Borough of Greenwich,Greenwich,18.2,15.7,-2.5,18.5,13.25,Barnett Waddingham,Hymans,"Employer code 1, clean match both years.; actuary changed between cycles (Barnett Waddingham 2022, Hymans 2025)"
 Suffolk County Council,Suffolk,19.4,23.0,3.6,19.4,10.0,Hymans,Hymans,No employer code listed for the council row; clean name match.
-Gwynedd Council,Gwynedd,21.2,16.1,-5.1,19.2,16.2,Hymans,Hymans,Employer listed as 'Gwynedd Council Pool' (2022) / 'Cyngor Gwynedd' (2025); no employer code shown for the pool line either year.
-Isle of Anglesey County Council,Gwynedd,21.1,16.0,-5.1,20.1,17.1,Hymans,Hymans,"Employer listed as 'Ynys Môn County Council Pool' (2022, Welsh for Anglesey) / 'Cyngor Sir Ynys Mon County Council' (2025); no employer code shown for the pool line either year."
-Conwy County Borough Council,Gwynedd,21.6,16.5,-5.1,19.6,16.6,Hymans,Hymans,Employer listed as 'Conwy County Borough Council Pool' (2022) / 'Cyngor Bwrdeistref Sirol Conwy County Borough Council' (2025); no employer code shown for the pool line either year.
 London Borough of Southwark,Southwark,20.5,17.3,-3.2,21.5,17.3,Aon,Aon,"Employer code 1 (grouped code), clean match both years."
-London Borough of Hackney,Hackney,20.1,16.5,-3.6,27.0,24.0,Hymans,Hymans,Clean name match both years.
+Royal Borough of Greenwich,Greenwich,18.2,15.7,-2.5,18.5,13.25,Barnett Waddingham,Hymans,"Employer code 1, clean match both years.; actuary changed between cycles (Barnett Waddingham 2022, Hymans 2025)"
 Barnsley MBC,South Yorkshire,20.0,17.2,-2.8,17.1,11.7,Hymans,Hymans,No employer code listed; clean name match.
 City of Doncaster Council,South Yorkshire,20.3,17.5,-2.8,16.3,12.1,Hymans,Hymans,No employer code listed; clean name match.
 Rotherham MBC,South Yorkshire,20.4,17.5,-2.9,17.3,12.1,Hymans,Hymans,No employer code listed; clean name match.
 Sheffield City Council,South Yorkshire,20.2,17.4,-2.8,17.5,11.9,Hymans,Hymans,No employer code listed; clean name match.
+Gwynedd Council,Gwynedd,21.2,16.1,-5.1,19.2,16.2,Hymans,Hymans,Employer listed as 'Gwynedd Council Pool' (2022) / 'Cyngor Gwynedd' (2025); no employer code shown for the pool line either year.
+Isle of Anglesey County Council,Gwynedd,21.1,16.0,-5.1,20.1,17.1,Hymans,Hymans,"Employer listed as 'Ynys Môn County Council Pool' (2022, Welsh for Anglesey) / 'Cyngor Sir Ynys Mon County Council' (2025); no employer code shown for the pool line either year."
+Conwy County Borough Council,Gwynedd,21.6,16.5,-5.1,19.6,16.6,Hymans,Hymans,Employer listed as 'Conwy County Borough Council Pool' (2022) / 'Cyngor Bwrdeistref Sirol Conwy County Borough Council' (2025); no employer code shown for the pool line either year.
+Somerset Council,Somerset,20.1,17.2,-2.9,,,Barnett Waddingham,Barnett Waddingham,"Employer code 700, clean match both years. Secondary is a cash amount in both cycles so no clean year-1 total."
+London Borough of Hackney,Hackney,20.1,16.5,-3.6,27.0,24.0,Hymans,Hymans,Clean name match both years.

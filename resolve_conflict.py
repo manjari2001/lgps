@@ -13,9 +13,33 @@ row whose (LEA, Fund) key repeats, keeping the first occurrence.
 
 Usage: ./resolve_conflict.py <path>
 """
-import csv, re, sys
+import csv, json, re, subprocess, sys
 
 path = sys.argv[1]
+
+if path.endswith(".json"):
+    # Naive text-line merging corrupts JSON structure (e.g. a hunk boundary
+    # falling inside one object). Instead read both full versions from the
+    # conflicted git stages and merge as data: union of records by "fund",
+    # first occurrence (theirs, i.e. the remote/upstream side) wins.
+    ours_raw = subprocess.run(["git", "show", f":2:{path}"], capture_output=True, text=True, check=True).stdout
+    theirs_raw = subprocess.run(["git", "show", f":3:{path}"], capture_output=True, text=True, check=True).stdout
+    ours = json.loads(ours_raw)
+    theirs = json.loads(theirs_raw)
+    seen = set()
+    merged = []
+    for entry in theirs + ours:
+        key = entry.get("fund")
+        if key in seen:
+            continue
+        seen.add(key)
+        merged.append(entry)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(merged, f, indent=2)
+        f.write("\n")
+    print(f"resolved JSON conflict in {path} ({len(merged)} entries)")
+    sys.exit(0)
+
 text = open(path, encoding="utf-8").read()
 
 pattern = re.compile(

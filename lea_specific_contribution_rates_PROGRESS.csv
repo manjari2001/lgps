@@ -63,15 +63,19 @@ Gateshead Council,Tyne and Wear,18.2,14.4,-3.8,17.5,14.4,Aon,Aon,No employer cod
 North Tyneside Council,Tyne and Wear,18.3,14.5,-3.8,18.3,14.5,Aon,Aon,No employer code listed in this fund's certificate; clean name match both years.
 South Tyneside Council,Tyne and Wear,18.3,14.4,-3.9,18.3,14.4,Aon,Aon,No employer code listed in this fund's certificate; clean name match both years.
 City of Sunderland Council,Tyne and Wear,18.5,15.0,-3.5,18.5,15.0,Aon,Aon,No employer code listed in this fund's certificate; clean name match both years.
+London Borough of Tower Hamlets,Tower Hamlets,19.4,21.9,2.5,,11.5,Hymans,Hymans,'Pool (non-schools)' line used per excl-schools convention; a 'Pool (schools)' line shares the same primary in both cycles. 2022 secondary is a mixed percentage-plus-cash figure so no clean 2022 total.
 Cumberland Council,Cumbria,18.8,16.2,-2.6,18.3,8.7,Mercer,Mercer,"Cumbria County Council was abolished April 2023 and replaced by Cumberland Council and Westmorland and Furness Council; the 2022 valuation report already lists the successor unitaries (employer code 30,001) rather than the old county council. 2025 employer code differs (10,289) but the name is a clean match."
 Westmorland and Furness Council,Cumbria,18.9,16.5,-2.4,17.3,9.3,Mercer,Mercer,"Cumbria County Council was abolished April 2023 and replaced by Cumberland Council and Westmorland and Furness Council; the 2022 valuation report already lists the successor unitaries (employer code 30,002) rather than the old county council. 2025 employer code differs (10,290, listed as 'Westmorland & Furness Council') but the name is a clean match."
 Derbyshire County Council,Derbyshire,20.8,18.9,-1.9,,18.0,Hymans,Hymans,"Employer code 1, clean match both years. 2022 secondary is a cash amount so no clean year-1 total."
 Devon County Council,Devon,19.2,16.5,-2.7,,,Barnett Waddingham,Barnett Waddingham,"Employer code 11, clean match both years. Secondary is a cash amount in both cycles so no clean year-1 total."
 Plymouth City Council,Devon,19.0,16.0,-3.0,22.4,16.0,Barnett Waddingham,Barnett Waddingham,"Employer code 8, clean match both years."
 Torbay Council,Devon,18.4,16.0,-2.4,18.4,16.0,Barnett Waddingham,Barnett Waddingham,"Employer code 10, clean match both years."
+Middlesbrough Borough Council,Teesside,19.1,19.5,0.4,11.5,11.5,Hymans,Hymans,Employer code 104 (2022) / 634 (2025); clean name match.
+Redcar and Cleveland Borough Council,Teesside,19.7,19.7,0.0,10.2,10.2,Hymans,Hymans,Employer code 103 in 2022; no code listed in 2025. Clean name match.
+Stockton on Tees Borough Council,Teesside,19.4,19.8,0.4,13.1,13.1,Hymans,Hymans,No code listed in 2022; employer code 714 in 2025. Clean name match.
+Hartlepool Borough Council,Teesside,19.4,19.6,0.2,12.4,12.4,Hymans,Hymans,No code listed in 2022; employer code 585 in 2025. Clean name match.
 Dorset Council,Dorset,19.1,16.2,-2.9,,,Barnett Waddingham,Barnett Waddingham,"Employer code 601, clean match both years. Secondary is a cash amount in both cycles so no clean year-1 total."
 "Bournemouth, Christchurch and Poole Council",Dorset,19.0,16.3,-2.7,,,Barnett Waddingham,Barnett Waddingham,"Employer code 604, listed as 'BCP Council' both years. Secondary is a cash amount in both cycles so no clean year-1 total."
-London Borough of Tower Hamlets,Tower Hamlets,19.4,21.9,2.5,,11.5,Hymans,Hymans,'Pool (non-schools)' line used per excl-schools convention; a 'Pool (schools)' line shares the same primary in both cycles. 2022 secondary is a mixed percentage-plus-cash figure so no clean 2022 total.
 Durham County Council,Durham,18.1,13.8,-4.3,,,Aon,Aon,Employer codes listed as 'See below' (a large group of code numbers). Secondary is a large cash amount in both cycles so no clean year-1 total.
 Darlington Borough Council,Durham,18.3,14.1,-4.2,18.3,14.1,Aon,Aon,"Employer codes 8, 59, 198/199, 248, 1217 (varies slightly by year); clean name match."
 Carmarthenshire County Council,Dyfed,20.3,16.6,-3.7,16.2,12.5,Mercer,Mercer,"Employer code 71, clean match both years."

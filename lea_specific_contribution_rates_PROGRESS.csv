@@ -72,3 +72,5 @@ Torbay Council,Devon,18.4,16.0,-2.4,18.4,16.0,Barnett Waddingham,Barnett Wadding
 Dorset Council,Dorset,19.1,16.2,-2.9,,,Barnett Waddingham,Barnett Waddingham,"Employer code 601, clean match both years. Secondary is a cash amount in both cycles so no clean year-1 total."
 "Bournemouth, Christchurch and Poole Council",Dorset,19.0,16.3,-2.7,,,Barnett Waddingham,Barnett Waddingham,"Employer code 604, listed as 'BCP Council' both years. Secondary is a cash amount in both cycles so no clean year-1 total."
 London Borough of Tower Hamlets,Tower Hamlets,19.4,21.9,2.5,,11.5,Hymans,Hymans,'Pool (non-schools)' line used per excl-schools convention; a 'Pool (schools)' line shares the same primary in both cycles. 2022 secondary is a mixed percentage-plus-cash figure so no clean 2022 total.
+Durham County Council,Durham,18.1,13.8,-4.3,,,Aon,Aon,Employer codes listed as 'See below' (a large group of code numbers). Secondary is a large cash amount in both cycles so no clean year-1 total.
+Darlington Borough Council,Durham,18.3,14.1,-4.2,18.3,14.1,Aon,Aon,"Employer codes 8, 59, 198/199, 248, 1217 (varies slightly by year); clean name match."

@@ -6,7 +6,7 @@
   },
   {
     "fund": "London Pensions Fund Authority",
-    "attempts": 1,
-    "reason": "LPFA is itself the administering authority for this fund, not a local education authority; its employer list is entirely academies, colleges, quangos, and admitted/scheduled bodies (Greater London Authority, East London Waste Authority, etc), with no county/borough council performing an LEA function. No genuine LEA row exists to extract - not comparable to the other funds."
+    "attempts": 2,
+    "reason": "LPFA is itself the administering authority for this fund, not a local education authority; its employer list (checked in full for both the 2022 and 2025 reports) is entirely academies, colleges, quangos, and admitted/scheduled bodies (Greater London Authority, East London Waste Authority, etc), with no county/borough council performing an LEA function. Marked as done at attempts=2 since this is a structural exclusion (like the Environment Agency rows), not a transient extraction failure - re-attempting would not change the outcome."
   }
 ]

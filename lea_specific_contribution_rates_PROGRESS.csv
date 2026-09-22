@@ -127,12 +127,13 @@ Rhondda Cynon Taf County Borough Council,Rhondda Cynon Taf,18.7,14.7,-4.0,18.7,1
 Merthyr Tydfil County Borough Council,Rhondda Cynon Taf,18.7,14.8,-3.9,21.8,16.4,Aon,Aon,"Employer codes 5,103 overlap both years; clean match."
 Bridgend County Borough Council,Rhondda Cynon Taf,19.4,15.2,-4.2,19.4,15.2,Aon,Aon,"Employer codes 2,102 overlap both years; clean match."
 Haringey Council,Haringey,17.3,17.2,-0.1,23.0,21.0,Hymans,Hymans,Employer listed as 'Haringey Council (Pool)' both years.
-London Borough of Harrow,Harrow,17.8,20.8,3.0,,,Hymans,Hymans,2025 row is 'London Borough of Harrow and maintained schools'; clean match. Secondary is a mixed percentage-plus-cash figure in both cycles so no clean year-1 total.
 Powys County Council,Powys,21.4,16.5,-4.9,,16.5,Aon,Aon,Clean name match. 2022 secondary is a cash amount so no clean year-1 total.
 London Borough of Redbridge,Redbridge,20.6,17.3,-3.3,19.1,13.1,Hymans,Hymans,Clean name match both years.
-London Borough of Havering,Havering,20.7,20.2,-0.5,,19.8,Hymans,Hymans,Employer listed as 'London Borough of Havering Pool' both years. 2022 secondary is a mixed percentage-plus-cash figure so no clean year-1 total.
 Oxfordshire County Council,Oxfordshire,18.4,19.5,1.1,19.9,18.9,Hymans,Hymans,"Employer code 1, clean match both years."
-Hertfordshire County Council,Hertfordshire,19.5,16.9,-2.6,19.6,16.3,Hymans,Barnett Waddingham,"Employer code 'Pool' (2022) / '1' (2025); clean name match.; actuary changed between cycles (Hymans 2022, Barnett Waddingham 2025)"
+London Borough of Harrow,Harrow,17.8,20.8,3.0,,,Hymans,Hymans,2025 row is 'London Borough of Harrow and maintained schools'; clean match. Secondary is a mixed percentage-plus-cash figure in both cycles so no clean year-1 total.
 Nottinghamshire County Council,Nottinghamshire,19.8,17.5,-2.3,,,Barnett Waddingham,Barnett Waddingham,"Employer code 315, clean match both years. Secondary is a cash amount in both cycles so no clean year-1 total."
+London Borough of Havering,Havering,20.7,20.2,-0.5,,19.8,Hymans,Hymans,Employer listed as 'London Borough of Havering Pool' both years. 2022 secondary is a mixed percentage-plus-cash figure so no clean year-1 total.
 West Northamptonshire Council,Northamptonshire,19.6,19.0,-0.6,,19.6,Hymans,Hymans,Clean name match both years. 2022 secondary is a cash amount so no clean year-1 total.
 North Northamptonshire Council,Northamptonshire,19.7,19.1,-0.6,,17.5,Hymans,Hymans,Clean name match both years. 2022 secondary is a cash amount so no clean year-1 total.
+North Yorkshire Council,North Yorkshire,20.0,15.1,-4.9,18.5,15.1,Aon,Aon,"North Yorkshire County Council was reorganised into the unitary North Yorkshire Council in April 2023; both reports already use the new name. Employer codes differ (7,9,10,11 in 2022 vs 25,10025 in 2025) but the name is a clean match."
+Hertfordshire County Council,Hertfordshire,19.5,16.9,-2.6,19.6,16.3,Hymans,Barnett Waddingham,"Employer code 'Pool' (2022) / '1' (2025); clean name match.; actuary changed between cycles (Hymans 2022, Barnett Waddingham 2025)"

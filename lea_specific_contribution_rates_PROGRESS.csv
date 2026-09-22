@@ -1,8 +1,8 @@
 LEA,Fund,Primary_2022,Primary_2025,Primary_change_pp,Total_2022_year1,Total_2025_year1,Actuary_2022,Actuary_2025,Notes
-Hampshire County Council,Hampshire,17.8,18.9,1.1,,,Aon,Hymans,"actuary changed between cycles (Aon 2022, Hymans 2025)"
-Surrey County Council,Surrey,18.9,15.8,-3.1,,,Hymans,Hymans,
-Kent County Council,Kent,20.5,16.6,-3.9,,,Barnett Waddingham,Barnett Waddingham,
-Essex County Council,Essex,21.7,18.2,-3.5,,,Barnett Waddingham,Barnett Waddingham,
+Hampshire County Council,Hampshire,17.8,18.9,1.1,17.8,15.1,Aon,Hymans,"actuary changed between cycles (Aon 2022, Hymans 2025). Total year-1 rates are clean percentages in both certificates (secondary 0.0% in 2022, -3.8% in 2025) - simply missed in the first extraction pass."
+Surrey County Council,Surrey,18.9,15.8,-3.1,"14.8% plus £9,084,000",16.6,Hymans,Hymans,"2025 total year-1 (16.6%) is a clean percentage, simply missed in the first pass. 2022 total is genuinely mixed (14.8% plus £9,084,000 for 2023/24, as printed in the certificate) - not converted, no employer-level payroll available anywhere in the report (only whole-fund assumed payroll of £711m is disclosed)."
+Kent County Council,Kent,20.5,16.6,-3.9,20.5,18.5,Barnett Waddingham,Barnett Waddingham,"Employer code 1 (70000), clean match both years. Total year-1 rates are clean percentages in both certificates - simply missed in the first extraction pass."
+Essex County Council,Essex,21.7,18.2,-3.5,20.2,20.0,Barnett Waddingham,Barnett Waddingham,"Employer code 1, listed as 'Essex County Council (incl. former GM schools)' in 2022; clean match. Total year-1 rates are clean percentages in both certificates - simply missed in the first extraction pass."
 Staffordshire County Council,Staffordshire,21.6,19.0,-2.6,,,Hymans,Hymans,"Employer code 101, 'Staffordshire County Council (excl. schools)' line used; a separate 'LEA Schools' line shares the same code and same 21.6% primary in 2022. 2022 secondary is a cash amount so no clean year-1 total."
 Bath and North East Somerset Council,Avon,18.7,16.6,-2.1,,16.6,Mercer,Mercer,"Employer code 151, listed as 'B&NES Council' both years; 2022 secondary is a cash amount so no clean year-1 total."
 Bristol City Council,Avon,18.3,16.0,-2.3,,15.3,Mercer,Mercer,Employer code 152; named 'City of Bristol Council' in 2022 and 'Bristol City Council' in 2025. 2022 secondary is a cash amount.

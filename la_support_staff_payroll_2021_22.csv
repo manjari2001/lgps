@@ -1,0 +1,153 @@
+LA_code,LA_name,Support_staff_costs_total_GBP
+816,York,39339445.0
+823,Central Bedfordshire,71449213.0
+877,Warrington,50290827.0
+878,Devon,163078511.0
+879,Plymouth,69777721.0
+880,Torbay,33557687.0
+841,Darlington,30451701.0
+845,East Sussex,100098715.0
+846,Brighton and Hove,57698271.0
+882,Southend-on-Sea,46832851.0
+883,Thurrock,52704586.0
+201,City of London,752820.0
+202,Camden,46745862.0
+203,Greenwich,86993762.0
+204,Hackney,80758150.0
+205,Hammersmith and Fulham,41955606.0
+206,Islington,60031577.0
+207,Kensington and Chelsea,33311323.0
+208,Lambeth,86251209.0
+209,Lewisham,85018071.0
+210,Southwark,89178417.0
+211,Tower Hamlets,106179800.0
+212,Wandsworth,83753536.0
+213,Westminster,42265446.0
+857,Rutland,10420298.0
+884,"Herefordshire, County of",38162866.0
+885,Worcestershire,126605918.0
+866,Swindon,65531797.0
+871,Slough,52659185.0
+800,Bath and North East Somerset,42550730.0
+801,"Bristol, City of",118303782.0
+802,North Somerset,52333052.0
+803,South Gloucestershire,60988470.0
+805,Hartlepool,26026719.0
+806,Middlesbrough,40280082.0
+807,Redcar and Cleveland,40795374.0
+808,Stockton-on-Tees,47845931.0
+810,"Kingston upon Hull, City of",71096413.0
+811,East Riding of Yorkshire,72848076.0
+812,North East Lincolnshire,40455801.0
+301,Barking and Dagenham,78580640.0
+302,Barnet,112922940.0
+815,North Yorkshire,127691900.0
+303,Bexley,65315286.0
+304,Brent,90482278.0
+305,Bromley,82937502.0
+306,Croydon,105173585.0
+307,Ealing,94977069.0
+821,Luton,80255591.0
+822,Bedford,51986310.0
+308,Enfield,98157694.0
+309,Haringey,87767547.0
+310,Harrow,61803084.0
+311,Havering,66377928.0
+312,Hillingdon,87970669.0
+313,Hounslow,78593529.0
+314,Kingston upon Thames,44242102.0
+315,Merton,49867858.0
+316,Newham,119519430.0
+317,Redbridge,84021258.0
+318,Richmond upon Thames,46272600.0
+825,Buckinghamshire,141190415.0
+826,Milton Keynes,93649169.0
+830,Derbyshire,176403619.0
+831,Derby,87120585.0
+319,Sutton,58456855.0
+320,Waltham Forest,86051617.0
+838,Dorset,76716199.0
+839,"Bournemouth, Christchurch and Poole",80706828.0
+330,Birmingham,368389576.0
+331,Coventry,96532413.0
+332,Dudley,72272226.0
+333,Sandwell,109087526.0
+334,Solihull,62757185.0
+335,Walsall,90254636.0
+336,Wolverhampton,83781581.0
+840,County Durham,131044422.0
+850,Hampshire,286997845.0
+851,Portsmouth,50644598.0
+340,Knowsley,38869597.0
+341,Liverpool,129267599.0
+342,St. Helens,41847096.0
+343,Sefton,61794904.0
+344,Wirral,85228433.0
+852,Southampton,64453577.0
+856,Leicester,117982316.0
+855,Leicestershire,171952425.0
+860,Staffordshire,200298483.0
+861,Stoke-on-Trent,74948664.0
+350,Bolton,90031568.0
+351,Bury,47831125.0
+352,Manchester,179806974.0
+353,Oldham,88885815.0
+354,Rochdale,73656878.0
+355,Salford,60584901.0
+356,Stockport,64007920.0
+357,Tameside,67739968.0
+865,Wiltshire,103104921.0
+359,Wigan,74482709.0
+867,Bracknell Forest,29501637.0
+868,Windsor and Maidenhead,42104826.0
+869,West Berkshire,40760401.0
+870,Reading,40659018.0
+872,Wokingham,42702131.0
+873,Cambridgeshire,151457394.0
+358,Trafford,63321637.0
+874,Peterborough,73665854.0
+876,Halton,34425723.0
+881,Essex,353117270.0
+370,Barnsley,52900131.0
+371,Doncaster,70109885.0
+372,Rotherham,80991859.0
+373,Sheffield,132694081.0
+886,Kent,400656853.0
+887,Medway,61122734.0
+888,Lancashire,288319157.0
+889,Blackburn with Darwen,49964821.0
+890,Blackpool,35816342.0
+891,Nottinghamshire,191611130.0
+380,Bradford,173650800.0
+381,Calderdale,66587427.0
+382,Kirklees,108294671.0
+383,Leeds,210782763.0
+384,Wakefield,88720081.0
+892,Nottingham,89649488.0
+893,Shropshire,55611331.0
+894,Telford and Wrekin,49323934.0
+895,Cheshire East,87835596.0
+896,Cheshire West and Chester,90220217.0
+390,Gateshead,45081013.0
+391,Newcastle upon Tyne,62982016.0
+392,North Tyneside,49613856.0
+393,South Tyneside,35801804.0
+394,Sunderland,65455051.0
+908,Cornwall,110447404.0
+909,Cumbria,118905706.0
+916,Gloucestershire,148194189.0
+919,Hertfordshire,306502866.0
+921,Isle of Wight,30502046.0
+925,Lincolnshire,191859769.0
+926,Norfolk,196305597.0
+929,Northumberland,70965120.0
+931,Oxfordshire,154572891.0
+420,LA code 420,726000.0
+933,Somerset,143193777.0
+935,Suffolk,155681964.0
+936,Surrey,256170216.0
+937,Warwickshire,135400128.0
+938,West Sussex,168696284.0
+940,North Northamptonshire,88211528.0
+941,West Northamptonshire,96981938.0
+813,North Lincolnshire,38212995.0

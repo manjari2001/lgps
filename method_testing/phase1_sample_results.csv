@@ -1,0 +1,48 @@
+﻿LEA,Fund,Actuary,Council_type,Fund_size,Line,Route,Payroll_2023_24_GBPm,Certificate_total,Certificate_cash_GBP,Rate_actually_paid_pct,Blind_error_pp,Implied_member_rate_pct,Certificate_formula_total_pct,Paid_minus_certificate_pp
+West Sussex CC,West Sussex,Hymans,County,Large,Single,R3 member £ / 6.5%,277.0,20.7,,20.76,0.06,6.48,,
+Caerphilly CBC,Greater Gwent,Hymans,Welsh unitary,Medium,Single,R3 member £ / 6.5%,143.6,23.5,,24.78,1.28,6.17,,
+Newport CC,Greater Gwent,Hymans,Welsh unitary,Medium,Single,R3 member £ / 6.5%,89.1,22.2,,24.01,1.81,6.01,,
+Torfaen CBC,Greater Gwent,Hymans,Welsh unitary,Medium,Single,R3 member £ / 6.5%,74.1,24.7,,25.38,0.68,6.32,,
+Blaenau Gwent CBC,Greater Gwent,Hymans,Welsh unitary,Medium,Single,R3 member £ / 6.5%,57.7,25.5,,26.71,1.21,6.21,,
+Cambridgeshire CC,Cambridgeshire,Hymans,County,Medium,Split,R3 member £ / 6.5%,128.6,,3943000,20.87,,,20.77,0.1
+Derbyshire CC,Derbyshire,Hymans,County,Large,Single,R2 employer normal £ / primary,291.6,,582000,21.0,,,21.0,0.0
+Derbyshire CC,Derbyshire,Hymans,County,Large,Single,R3 member £ / 6.5%,275.4,,582000,22.23,,,21.01,1.22
+Luton BC,Bedfordshire,BW,Unitary,Medium,Single,R2 employer normal £ / primary,122.8,,4260000,30.29,,,23.67,6.62
+Luton BC,Bedfordshire,BW,Unitary,Medium,Single,R3 member £ / 6.5%,116.1,,4260000,32.04,,,23.87,8.17
+Central Bedfordshire,Bedfordshire,BW,Unitary,Medium,Split,R2 employer normal £ / primary,150.5,,7560000,33.92,,,24.32,9.6
+Central Bedfordshire,Bedfordshire,BW,Unitary,Medium,Split,R3 member £ / 6.5%,131.5,,7560000,38.83,,,25.05,13.78
+Bedford BC,Bedfordshire,BW,Unitary,Medium,Single,R2 employer normal £ / primary,79.0,,5800000,41.29,,,27.25,14.05
+Bedford BC,Bedfordshire,BW,Unitary,Medium,Single,R3 member £ / 6.5%,74.9,,5800000,43.54,,,27.65,15.9
+RB Greenwich,Greenwich,BW,London borough,Small,Single,R3 member £ / 6.5%,206.0,18.5,,17.4,-1.1,6.91,,
+Dorset Council,Dorset,BW,Unitary,Medium,Single,R1 member £ / stated member rate,156.6,,5820000,22.73,,,22.82,-0.09
+Dorset Council,Dorset,BW,Unitary,Medium,Single,R3 member £ / 6.5%,154.2,,5820000,23.08,,,22.88,0.21
+BCP Council,Dorset,BW,Unitary,Medium,Single,R1 member £ / stated member rate,143.2,,3970000,21.86,,,21.77,0.09
+BCP Council,Dorset,BW,Unitary,Medium,Single,R3 member £ / 6.5%,141.0,,3970000,22.21,,,21.82,0.39
+Wokingham BC,Berkshire,BW,Unitary,Medium,Split,R3 member £ / 6.5%,70.4,,3420000,23.92,,,21.26,2.66
+RB Windsor & Maidenhead,Berkshire,BW,Unitary,Medium,Split,R3 member £ / 6.5%,35.1,,4400000,36.29,,,29.12,7.17
+Bristol CC,Avon,Mercer,Unitary,Medium,Single,R3 member £ / 6.5%,228.0,,13925810,,,,24.41,
+Bath & NE Somerset,Avon,Mercer,Unitary,Medium,Single,R3 member £ / 6.5%,85.5,,1584560,,,,20.55,
+Flintshire CC,Clwyd,Mercer,Welsh unitary,Medium,Single,R1 member £ / stated member rate,109.6,20.7,,20.87,0.17,6.15,,
+Flintshire CC,Clwyd,Mercer,Welsh unitary,Medium,Single,R1 employer £ / stated employer rate,110.5,20.7,,20.7,0.0,6.15,,
+Flintshire CC,Clwyd,Mercer,Welsh unitary,Medium,Single,R3 member £ / 6.5%,104.5,20.7,,21.88,1.18,6.15,,
+Denbighshire CC,Clwyd,Mercer,Welsh unitary,Medium,Single,R1 member £ / stated member rate,82.6,,-1723300,16.7,,,16.71,-0.01
+Denbighshire CC,Clwyd,Mercer,Welsh unitary,Medium,Single,R1 employer £ / stated employer rate,82.6,,-1723300,16.7,,,16.71,-0.01
+Denbighshire CC,Clwyd,Mercer,Welsh unitary,Medium,Single,R3 member £ / 6.5%,78.8,,-1723300,17.51,,,16.61,0.9
+Wrexham CBC,Clwyd,Mercer,Welsh unitary,Medium,Single,R1 member £ / stated member rate,104.6,,-2100000,13.31,,,16.99,-3.68
+Wrexham CBC,Clwyd,Mercer,Welsh unitary,Medium,Single,R1 employer £ / stated employer rate,104.7,,-2100000,13.3,,,16.99,-3.69
+Wrexham CBC,Clwyd,Mercer,Welsh unitary,Medium,Single,R3 member £ / 6.5%,98.2,,-2100000,14.19,,,16.86,-2.67
+LB Bromley,Bromley,Mercer,London borough,Small,Single,R3 member £ / 6.5%,61.5,17.7,,16.26,-1.44,7.08,,
+Liverpool CC,Merseyside,Mercer,Metropolitan,Large,Single,R2 employer normal £ / primary,253.2,,-9841000,14.81,,,14.81,0.0
+Liverpool CC,Merseyside,Mercer,Metropolitan,Large,Single,R3 member £ / 6.5%,251.6,,-9841000,14.9,,,14.79,0.12
+Gateshead,Tyne and Wear,Aon,Metropolitan,Large,Single,R3 member £ / 6.5%,153.9,17.5,,17.56,0.06,6.48,,
+Newcastle CC,Tyne and Wear,Aon,Metropolitan,Large,Single,R3 member £ / 6.5%,176.5,17.6,,17.89,0.29,6.4,,
+North Tyneside,Tyne and Wear,Aon,Metropolitan,Large,Single,R3 member £ / 6.5%,136.5,18.3,,18.84,0.54,6.31,,
+Sunderland CC,Tyne and Wear,Aon,Metropolitan,Large,Single,R3 member £ / 6.5%,92.0,18.5,,18.88,0.38,6.37,,
+Rhondda Cynon Taf CBC,Rhondda Cynon Taf,Aon,Welsh unitary,Medium,Single,R1 employer £ / stated employer rate,193.5,18.7,,18.7,0.0,6.19,,
+Rhondda Cynon Taf CBC,Rhondda Cynon Taf,Aon,Welsh unitary,Medium,Single,R3 member £ / 6.5%,184.3,18.7,,19.64,0.94,6.19,,
+Bridgend CBC,Rhondda Cynon Taf,Aon,Welsh unitary,Medium,Single,R1 employer £ / stated employer rate,106.8,19.4,,19.4,0.0,6.12,,
+Bridgend CBC,Rhondda Cynon Taf,Aon,Welsh unitary,Medium,Single,R3 member £ / 6.5%,100.5,19.4,,20.61,1.21,6.12,,
+Merthyr Tydfil CBC,Rhondda Cynon Taf,Aon,Welsh unitary,Medium,Single,R1 employer £ / stated employer rate,46.7,21.8,,21.8,0.0,6.2,,
+Merthyr Tydfil CBC,Rhondda Cynon Taf,Aon,Welsh unitary,Medium,Single,R3 member £ / 6.5%,44.5,21.8,,22.87,1.07,6.2,,
+Powys CC,Powys,Aon,Welsh unitary,Small,Single,R2 employer normal £ / primary,103.8,,2362000,23.98,,,23.68,0.3
+Powys CC,Powys,Aon,Welsh unitary,Small,Single,R3 member £ / 6.5%,99.4,,2362000,25.03,,,23.78,1.26

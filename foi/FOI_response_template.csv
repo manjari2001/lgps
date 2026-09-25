@@ -1,11 +1,11 @@
-﻿Financial_year,Staff_group,Employer_rate_pct,Employer_contributions_paid_GBP,Pensionable_pay_GBP,LGPS_members,Opted_out_employees
-2017-18,All staff,,,,,
-2018-19,All staff,,,,,
-2019-20,All staff,,,,,
-2020-21,All staff,,,,,
-2021-22,All staff,,,,,
-2022-23,All staff,,,,,
-2023-24,All staff,,,,,
-2024-25,All staff,,,,,
-2025-26,All staff,,,,,
-2026-27,All staff,,,,,
+﻿Financial_year,Staff_group,Employer_rate_pct,Employer_contributions_paid_GBP,Pensionable_pay_GBP,LGPS_members,Opted_out_employees,Figures_as_at
+2017-18,All staff,,,,,,2018-03-31
+2018-19,All staff,,,,,,2019-03-31
+2019-20,All staff,,,,,,2020-03-31
+2020-21,All staff,,,,,,2021-03-31
+2021-22,All staff,,,,,,2022-03-31
+2022-23,All staff,,,,,,2023-03-31
+2023-24,All staff,,,,,,2024-03-31
+2024-25,All staff,,,,,,2025-03-31
+2025-26,All staff,,,,,,2026-03-31
+2026-27,All staff,,,,,,

@@ -18,13 +18,17 @@ Sources (downloaded on first run into CACHE_DIR, never committed):
 AAR (academies) is not used: academies are separate LGPS employers, so their
 staff never sit in a council's own certificate line or in RO employee costs.
 
-Validation only runs on councils where an independent payroll is already known
+Step 1 validates on councils where an independent payroll is already known
 (certificate footnote equivalents, and fund annual report contributions from
-phase 1). No new LEA rates are produced here.
+phase 1) and writes phase5_ro_cfr_validation.csv.
+Step 2 applies the validated variant (base year x uplift) to every English LEA
+whose certificate total is mixed, and writes the Est_* columns of the main CSV.
+The printed Total_* columns are never changed.
 
     python3 method_testing/phase5_ro_cfr_model.py
 """
 import csv
+import io
 import json
 import os
 import re
@@ -88,6 +92,29 @@ FOOTNOTES = [
     ("London Borough of Lewisham", "E09000023", 17.6, 5_750_000, 22.0),
 ]
 ROUTE_RANK = {"R1": 1, "R2": 2, "R3": 3}   # phase 1 routes, best first
+# Error band quoted with each estimate, as a share of the rebuilt secondary.
+# In validation |error| / |secondary| was <= 0.25 for 12 of 15 councils, and
+# every council over it (Lambeth, Lewisham, RBWM) was a flagged or outlier case.
+ERROR_SHARE = 0.25
+FUND_SHARE_LIMIT = 0.9      # no estimate if payroll > 90% of whole-fund pay
+
+# Main CSV names that do not normalise to an RO name, or whose ONS code
+# changed at a reorganisation: {LEA: {base year: ONS}}
+ONS_OVERRIDES = {
+    "Newcastle City Council": {"2021-22": "E08000021", "2024-25": "E08000021"},
+    "City of London Corporation": {"2021-22": "E09000001", "2024-25": "E09000001"},
+    "Dorset Council": {"2021-22": "E06000059", "2024-25": "E06000059"},
+    "Somerset Council": {"2021-22": "E10000027", "2024-25": "E06000066"},
+    "North Yorkshire Council": {"2021-22": "E10000023", "2024-25": "E06000065"},
+    "Cumberland Council": {"2024-25": "E06000063"},
+    "Westmorland and Furness Council": {"2024-25": "E06000064"},
+}
+WELSH_FUNDS = {"Cardiff", "Clwyd", "Dyfed", "Greater Gwent (Torfaen)", "Gwynedd", "Powys",
+               "Rhondda Cynon Taf", "Swansea"}
+CYCLES = {"2022": ("Total_2022_year1", "2021-22"), "2025": ("Total_2025_year1", "2024-25")}
+MAIN_CSV = os.path.join(HERE, "..", "lea_specific_contribution_rates_PROGRESS.csv")
+EST_COLS = ["Est_payroll_2022_year1_GBPm", "Est_total_2022_year1", "Est_total_2022_error_pp",
+            "Est_payroll_2025_year1_GBPm", "Est_total_2025_year1", "Est_total_2025_error_pp", "Est_notes"]
 
 
 def fetch(url, name):
@@ -180,14 +207,96 @@ def printed_pct(total_cell):
     return float(m.group(1)) if m else None
 
 
+def parse_mixed(cell):
+    """'19.3% plus £8,500,000' -> (19.3, 8500000). Handles 'less', '£4.26m',
+    '£8,940k' and several cash items (summed). None if not a mixed total."""
+    m = re.match(r"\s*(-?[\d.]+)%", cell or "")
+    items = re.findall(r"(plus|less)\s+£([\d,.]+)\s*(m|k)?", cell or "")
+    if not m or not items:
+        return None
+    cash = 0.0
+    for sign, num, unit in items:
+        v = float(num.replace(",", "")) * {"m": 1e6, "k": 1e3}.get(unit, 1)
+        cash += -v if sign == "less" else v
+    return float(m.group(1)), cash, len(items)
+
+
+def norm_name(s):
+    s = s.lower().replace("&", "and").replace("-", " ").replace(",", "")
+    for w in ["london borough of", "royal borough of", "city of", "county borough council", "borough council",
+              "county council", "city council", "metropolitan borough council", "council", "mbc", "mdc",
+              "cbc", "city and county of", "the ", "county of"]:
+        s = s.replace(w, " ")
+    s = re.sub(r"\s(cc|ua|bc|md|lb)$", "", s.strip())    # 2024-25 RO uses 'Devon CC' etc.
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def load_fund_pay():
+    """{(fund, valuation): whole-fund actual pay £} from phase 0."""
+    return {(r["Fund"], r["Valuation"]): float(r["Whole_fund_actual_pay_GBP"]) for r in csv.DictReader(
+        open(os.path.join(HERE, "phase0_whole_fund_actual_pay.csv"), encoding="utf-8-sig"))}
+
+
+def estimate_main_csv(ro, cfr):
+    raw = open(MAIN_CSV, "rb").read()
+    rows = list(csv.DictReader(io.StringIO(raw.decode("utf-8-sig"))))
+    fields = [c for c in rows[0].keys() if c not in EST_COLS] + EST_COLS
+    fund_pay = load_fund_pay()
+    by_name = defaultdict(dict)
+    for (ons, year), rec in ro.items():
+        by_name[year].setdefault(norm_name(rec["name"]), ons)
+    counts = defaultdict(int)
+    for r in rows:
+        for c in EST_COLS:
+            r[c] = ""
+        notes = []
+        for val, (col, base_year) in CYCLES.items():
+            parsed = parse_mixed(r[col])
+            if not parsed:
+                continue
+            pct, cash, n_items = parsed
+            ons = ONS_OVERRIDES.get(r["LEA"], {}).get(base_year) or by_name[base_year].get(norm_name(r["LEA"]))
+            if not ons or (ons, base_year) not in ro:
+                if r["Fund"] not in WELSH_FUNDS:
+                    raise SystemExit(f"no RO match for English LEA {r['LEA']!r} ({base_year}): add to ONS_OVERRIDES")
+                notes.append(f"{val}: no estimate - Welsh council, not in English RO/CFR data")
+                counts["wales"] += 1
+                continue
+            _, base = payroll(ro, cfr, ons, base_year)
+            fp = fund_pay.get((r["Fund"], val))
+            if fp and base / fp > FUND_SHARE_LIMIT:
+                notes.append(f"{val}: no estimate - RO-based payroll is {base / fp:.0%} of whole-fund pay, "
+                             "so RO costs include staff outside this line")
+                counts["flagged"] += 1
+                continue
+            year1 = base * UPLIFT[val]
+            secondary = cash / year1 * 100
+            r[f"Est_payroll_{val}_year1_GBPm"] = f"{year1 / 1e6:.1f}"
+            r[f"Est_total_{val}_year1"] = f"{pct + secondary:.1f}"
+            r[f"Est_total_{val}_error_pp"] = f"{max(0.1, abs(secondary) * ERROR_SHARE):.1f}"
+            counts["estimated"] += 1
+            if n_items > 1:
+                notes.append(f"{val}: {n_items} cash items in the certificate line summed")
+        if r["Est_total_2022_year1"] or r["Est_total_2025_year1"]:
+            if re.search(r"non-school|excl\.? schools|separate '[^']*schools?[^']*' line|schools-staff pool|"
+                         r"'pool \(schools\)'", r["Notes"], re.I):
+                notes.append("certificate line excludes schools but estimated payroll includes school support "
+                             "staff, so payroll may be overstated and the total understated")
+        r["Est_notes"] = "; ".join(notes)
+    buf = io.StringIO(newline="")
+    w = csv.DictWriter(buf, fieldnames=fields, lineterminator="\r\n")
+    w.writeheader()
+    w.writerows(rows)
+    open(MAIN_CSV, "wb").write(("\ufeff" + buf.getvalue()).encode("utf-8"))
+    print(f"main CSV: {counts['estimated']} estimates, {counts['flagged']} flagged, "
+          f"{counts['wales']} Welsh cells skipped")
+
+
 def main():
     ro, cfr = load_ro(), load_cfr()
-    main_csv = {r["LEA"]: r for r in csv.DictReader(
-        open(os.path.join(HERE, "..", "lea_specific_contribution_rates_PROGRESS.csv"), encoding="utf-8-sig"))}
+    main_csv = {r["LEA"]: r for r in csv.DictReader(open(MAIN_CSV, encoding="utf-8-sig"))}
 
-    fund_pay = {r["Fund"]: float(r["Whole_fund_actual_pay_GBP"]) for r in csv.DictReader(
-        open(os.path.join(HERE, "phase0_whole_fund_actual_pay.csv"), encoding="utf-8-sig"))
-        if r["Valuation"] == "2022"}
+    fund_pay = {f: v for (f, val), v in load_fund_pay().items() if val == "2022"}
 
     # one benchmark per council: best phase 1 route
     bench = {}
@@ -251,6 +360,7 @@ def main():
         print(f"{k:20} payroll err: median {st.median(pe):+.1f}%  mean abs {st.mean(map(abs, pe)):.1f}%  "
               f"| total rate abs err (n={len(te)}): median {st.median(te):.2f}pp, max {max(te):.2f}pp")
     print("wrote", path)
+    estimate_main_csv(ro, cfr)
 
 
 if __name__ == "__main__":

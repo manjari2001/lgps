@@ -113,6 +113,36 @@ WELSH_FUNDS = {"Cardiff", "Clwyd", "Dyfed", "Greater Gwent (Torfaen)", "Gwynedd"
                "Rhondda Cynon Taf", "Swansea"}
 CYCLES = {"2022": ("Total_2022_year1", "2021-22"), "2025": ("Total_2025_year1", "2024-25")}
 MAIN_CSV = os.path.join(HERE, "..", "lea_specific_contribution_rates_PROGRESS.csv")
+# Councils whose certificate puts maintained-school staff on a separate line
+# from the council's own staff. The main CSV holds the council line; these are
+# the schools line's year-1 TOTAL rate (%), from the certificates (Berkshire
+# 2022 from the separate certificate on berkshirepensions.org.uk; Sutton and
+# Kingston from the certificate footnote 'equivalent LEA schools' rate').
+# Estimates for these councils blend both lines over the combined payroll, so
+# every estimate covers council staff plus maintained-school support staff.
+# Lines with identical rates on both lines (e.g. Cheshire West & Chester,
+# Tower Hamlets 2025, Kingston 2025) need no blend and are not listed.
+SCHOOLS_LINES = {
+    "Staffordshire County Council": {"2022": 28.6, "2025": 28.1},   # 'LEA Schools'
+    "Central Bedfordshire Council": {"2022": 28.2},                 # 'Central Bedfordshire schools'
+    "Royal Borough of Windsor and Maidenhead": {"2022": 31.1, "2025": 31.1},   # 'RBWM (schools)'
+    "Wokingham Borough Council": {"2022": 27.2, "2025": 24.2},      # '(Schools)'
+    "Cambridgeshire County Council": {"2022": 21.2},                # 'LEA Schools (CCC)'
+    "Peterborough City Council": {"2022": 22.5},                    # 'LEA Schools (PCC)'
+    "Cornwall Council": {"2022": 21.8, "2025": 22.2},               # 'Pool (School Staff)' / 'Schools'
+    "Wiltshire Council": {"2022": 24.8, "2025": 22.4},              # 'Pool (schools)'
+    "Kingston upon Hull City Council": {"2022": 22.1},              # 'Pool (School Staff)'
+    "North East Lincolnshire Council": {"2022": 23.3},
+    "North Lincolnshire Council": {"2022": 21.3},
+    "London Borough of Tower Hamlets": {"2022": 24.3},              # withheld anyway (fund check)
+    "London Borough of Sutton": {"2022": 25.7, "2025": 20.8},       # footnote, LEA schools
+    "Royal Borough of Kingston upon Thames": {"2022": 21.0},        # footnote, LEA schools
+}
+# Worst case in validation (+3.9pp): most non-school services are outsourced,
+# so the council line is small and the blend leans on the CFR schools share.
+LOW_CONFIDENCE = {"Royal Borough of Windsor and Maidenhead":
+                  "low confidence - worst validation case (+3.9pp in 2022); council line is small because "
+                  "most non-school services are outsourced"}
 EST_COLS = ["Est_payroll_2022_year1_GBPm", "Est_total_2022_year1", "Est_total_2022_error_pp",
             "Est_payroll_2025_year1_GBPm", "Est_total_2025_year1", "Est_total_2025_error_pp", "Est_notes"]
 
@@ -178,17 +208,19 @@ def load_ro():
     return out
 
 
-def load_cfr():
-    """{(ons, year): teacher costs £ (E01 + E02), all maintained schools}."""
+def load_cfr(codes=("E01", "E02")):
+    """{(ons, year): £ for the given CFR codes, all maintained schools}.
+    Default E01 + E02 = teachers; E03-E07 = support staff."""
     z = zipfile.ZipFile(fetch(CFR_URL, "la_and_school_expenditure.zip"))
     out = defaultdict(float)
+    pattern = r"\((%s)\)$" % "|".join(codes)
     with z.open("data/cfr_expenditure_la_regional_national.csv") as f:
         lines = (l.decode("cp1252") for l in f)
         for r in csv.DictReader(lines):
             if (r["geographic_level"] != "Local authority" or r["time_period"] not in CFR_YEARS
                     or r["school_phase"] != "All LA maintained schools"):
                 continue
-            if re.search(r"\((E01|E02)\)$", r["expenditure_description"]):
+            if re.search(pattern, r["expenditure_description"]):
                 try:
                     out[(r["new_la_code"], CFR_YEARS[r["time_period"]])] += float(r["expenditure"])
                 except ValueError:
@@ -237,7 +269,7 @@ def load_fund_pay():
         open(os.path.join(HERE, "phase0_whole_fund_actual_pay.csv"), encoding="utf-8-sig"))}
 
 
-def estimate_main_csv(ro, cfr):
+def estimate_main_csv(ro, cfr, cfr_support):
     raw = open(MAIN_CSV, "rb").read()
     rows = list(csv.DictReader(io.StringIO(raw.decode("utf-8-sig"))))
     fields = [c for c in rows[0].keys() if c not in EST_COLS] + EST_COLS
@@ -271,24 +303,34 @@ def estimate_main_csv(ro, cfr):
                 continue
             year1 = base * UPLIFT[val]
             secondary = cash / year1 * 100
+            total, band = pct + secondary, abs(secondary) * ERROR_SHARE
+            sch_total = SCHOOLS_LINES.get(r["LEA"], {}).get(val)
+            if sch_total is not None:
+                # Payroll-weighted blend of the council line (pct + cash) and
+                # the schools line (its printed total) over the combined payroll.
+                sch_pay = cfr_support.get((ons, base_year), 0.0) * PARTICIPATION / ONCOST * UPLIFT[val]
+                w = sch_pay / year1
+                total = pct * (1 - w) + sch_total * w + secondary
+                band = (abs(secondary) + abs(sch_total - pct) * w) * ERROR_SHARE
+                notes.append(f"{val}: blends council line with schools line ({sch_total:.1f}%) over combined "
+                             f"payroll; schools share {w:.0%} from CFR support staff (E03-E07)")
+                counts["blended"] += 1
             r[f"Est_payroll_{val}_year1_GBPm"] = f"{year1 / 1e6:.1f}"
-            r[f"Est_total_{val}_year1"] = f"{pct + secondary:.1f}"
-            r[f"Est_total_{val}_error_pp"] = f"{max(0.1, abs(secondary) * ERROR_SHARE):.1f}"
+            r[f"Est_total_{val}_year1"] = f"{total:.1f}"
+            r[f"Est_total_{val}_error_pp"] = f"{max(0.1, band):.1f}"
             counts["estimated"] += 1
             if n_items > 1:
                 notes.append(f"{val}: {n_items} cash items in the certificate line summed")
-        if r["Est_total_2022_year1"] or r["Est_total_2025_year1"]:
-            if re.search(r"non-school|excl\.? schools|separate '[^']*schools?[^']*' line|schools-staff pool|"
-                         r"'pool \(schools\)'", r["Notes"], re.I):
-                notes.append("certificate line excludes schools but estimated payroll includes school support "
-                             "staff, so payroll may be overstated and the total understated")
+        if r["LEA"] in LOW_CONFIDENCE and (r["Est_total_2022_year1"] or r["Est_total_2025_year1"]):
+            notes.append(LOW_CONFIDENCE[r["LEA"]])
         r["Est_notes"] = "; ".join(notes)
     buf = io.StringIO(newline="")
     w = csv.DictWriter(buf, fieldnames=fields, lineterminator="\r\n")
     w.writeheader()
     w.writerows(rows)
     open(MAIN_CSV, "wb").write(("\ufeff" + buf.getvalue()).encode("utf-8"))
-    print(f"main CSV: {counts['estimated']} estimates, {counts['flagged']} flagged, "
+    print(f"main CSV: {counts['estimated']} estimates ({counts['blended']} blended with a schools line), "
+          f"{counts['flagged']} flagged, "
           f"{counts['wales']} Welsh cells skipped")
 
 
@@ -360,7 +402,7 @@ def main():
         print(f"{k:20} payroll err: median {st.median(pe):+.1f}%  mean abs {st.mean(map(abs, pe)):.1f}%  "
               f"| total rate abs err (n={len(te)}): median {st.median(te):.2f}pp, max {max(te):.2f}pp")
     print("wrote", path)
-    estimate_main_csv(ro, cfr)
+    estimate_main_csv(ro, cfr, load_cfr(("E03", "E04", "E05", "E06", "E07")))
 
 
 if __name__ == "__main__":

@@ -97,6 +97,45 @@ the same ±25% band is used. A 2% miss in the forecast uplift moves a rate by
 only 2% of its secondary. Check the 2026 NJC award and update `UPLIFT["2025"]`
 once it is known.
 
+## Councils with a separate schools line
+
+Some certificates put the council's own staff and its maintained-school staff
+on separate lines. The main CSV holds the council line, but the estimated
+payroll includes school support staff. Dividing the council line's cash by
+the combined payroll would understate the total. These councils therefore
+get a payroll-weighted blend of both lines:
+
+    schools payroll  = CFR support staff (E03-E07) x 0.95 / 1.291 x uplift
+    w                = schools payroll / combined payroll
+    total %          = X x (1 - w) + schools-line total x w + Y / combined payroll
+    error band       = 25% x (|Y / combined payroll| + |schools total - X| x w)
+
+The schools-line cash is not summed in, because every schools line has a
+percentage secondary, not cash. Schools-line totals used (year 1):
+
+| Council | 2022 | 2025 |
+|---|---|---|
+| Staffordshire (LEA Schools) | 28.6% | 28.1% |
+| Central Bedfordshire (schools) | 28.2% | single line |
+| Windsor & Maidenhead (schools) | 31.1% | 31.1% |
+| Wokingham (Schools) | 27.2% | 24.2% |
+| Cambridgeshire / Peterborough (LEA Schools) | 21.2% / 22.5% | council line clean |
+| Cornwall (School Staff / Schools) | 21.8% | 22.2% |
+| Wiltshire (schools) | 24.8% | 22.4% |
+| Hull / NE Lincs / N Lincs (School Staff) | 22.1% / 23.3% / 21.3% | council line clean |
+| Sutton (footnote, LEA schools) | 25.7% | 20.8% |
+| Kingston upon Thames (footnote, LEA schools) | 21.0% | same as council |
+| Tower Hamlets (schools) | 24.3% (withheld by fund check) | same as council |
+
+Checked and needing no blend: Cheshire West & Chester and Tower Hamlets 2025
+(schools line has identical rates). East Riding 2025, Cambridgeshire 2025 and
+Central Bedfordshire 2025 have a single combined line.
+
+Caveats:
+- The blend itself is not validated. The phase 1 benchmarks don't say which line they cover.
+- Windsor & Maidenhead (42.0% 2022, 30.5% 2025) is low confidence. Schools are 62% of combined payroll, because most non-school services are outsourced, and it was the worst validation case.
+- Wiltshire's 2022 printed total was corrected from 20.7% to 21.0% plus £4,829,000 during this check. The certificate secondary is 0.3% + £4,829,000.
+
 ## Main CSV columns
 
 | Column | Meaning |
@@ -104,9 +143,10 @@ once it is known.
 | `Est_payroll_2022_year1_GBPm` / `_2025_` | Estimated 2023/24 / 2026/27 payroll, £m |
 | `Est_total_2022_year1` / `_2025_` | Rebuilt single total % |
 | `Est_total_2022_error_pp` / `_2025_` | ± band in percentage points (25% of the secondary, minimum 0.1) |
-| `Est_notes` | Why a mixed cell has no estimate, or a caveat on one |
+| `Est_notes` | Why a mixed cell has no estimate, whether it blends a schools line, or a caveat |
 
-Filled only where the printed total is mixed. 72 mixed cells: 61 estimated,
+Filled only where the printed total is mixed. 72 mixed cells: 61 estimated
+(19 of them blended with a separate schools line),
 8 withheld by the whole-fund check, 3 Welsh.
 
 ## Things that trip people up
@@ -114,7 +154,7 @@ Filled only where the printed total is mixed. 72 mixed cells: 61 estimated,
 1. **The % in "X% plus £Y" is not always the primary rate.** Harrow's primary is 17.8% but its line prints 16.0% + £6m. The formula uses the printed X.
 2. **Tier 2/3 "truth" is itself an estimate.** Part of the measured error is benchmark error, so the method's real accuracy is probably between the Tier 2 figure and the all-council figure.
 3. **The whole-fund check.** If estimated payroll is more than 90% of the whole fund's actual pay, there is no estimate. It happens in single-borough London funds (Lambeth, Lewisham, Camden, Tower Hamlets, Ealing, Islington, Havering, Barnet), where RO costs include staff outside the council's line, probably voluntary-aided and foundation school staff.
-4. **Non-schools lines.** Several certificates put the council's own staff and its school staff on separate lines (Staffordshire, Cambridgeshire, Cornwall, Wiltshire and others). The estimate includes school support staff, so it may overstate payroll and understate the total. Removing school support staff was tested: it fixed Cambridgeshire (+34% → -1%) but broke Windsor & Maidenhead (-24% → -71%, most non-school services outsourced). So it is flagged in `Est_notes`, not applied.
+4. **Separate schools lines are blended, not dropped.** See "Councils with a separate schools line" above. Every estimate covers council staff plus maintained-school support staff, because those are the employees this work is about.
 5. **Only the uplift is measured.** 0.95 and 1.291 are assumptions, not fitted. They matched on average: 0.95 / 1.291 = 0.736 against an observed mean of 0.73.
 6. **Actual year-1 RO data** (2023-24 for the 2022 cycle) has the best worst case (1.7pp) but can't be used for 2025, so it is only a check.
 7. **Year 1 only.** Years 2 and 3 of each certificate have different cash sums.
